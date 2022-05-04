@@ -22,7 +22,7 @@ function Home() {
           <Product 
             id= '2'
             title="Xbox Core Wireless Controller – Shock Blue" 
-            price="54.99"
+            price="58.12"
             image="https://m.media-amazon.com/images/I/51v0T9+NgdL._AC_UL320_.jpg"
             rating={3}
           />

@@ -9,7 +9,7 @@ export const Product = ({id, title, image, price, rating}) => {
 
     const addToBasket = () => {
         dispatch({
-            type: 'ADD_TO__BASKET',
+            type: 'ADD_TO_BASKET',
             item: {
                 id: id,
                 title: title,
