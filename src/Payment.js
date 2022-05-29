@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import CheckoutProduct from './CheckoutProduct';
 import './Payment.css'
 import { useStateValue } from './StateProvider'
-import { Link, Navigate, useNavigate} from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from './reducer';
@@ -21,6 +21,8 @@ function Payment() {
     const [disabled, setDisabled] = useState(true);
     const [clientSecret, setClientSecret] = useState(true);
 
+    let navigate = useNavigate();
+
     useEffect(() => {
 
         const getClientSecret = async () => {
@@ -32,6 +34,8 @@ function Payment() {
         } 
         getClientSecret();
     }, [basket])
+
+    console.log('THE SECRET IS >>>', clientSecret)
   
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -46,7 +50,7 @@ function Payment() {
             setError(null)
             setProcessing(false)
 
-            Navigate('/orders')
+            navigate('/orders')
         })
     }
 
